@@ -93,3 +93,4 @@ document.getElementById('submit').addEventListener('click', async (event) => {
 	let data = await getFoursquare(business)
 	myMap.businesses = processBusinesses(data)
 	myMap.addMarkers()
+})

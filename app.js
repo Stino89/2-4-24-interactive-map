@@ -93,3 +93,6 @@ document.getElementById('submit').addEventListener('click', async (event) => {
 	myMap.businesses = processBusinesses(data)
 	myMap.addMarkers()
 })
+
+
+

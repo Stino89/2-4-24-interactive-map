@@ -1,12 +1,12 @@
 // map object
 const myMap = {
-	coordinates: [],
-	businesses: [],
-	map: {},
-	markers: {},
+	    coordinates: [],
+    	businesses: [],
+    	map: {},
+    	markers: {},
 
-	// build leaflet map
-	buildMap() {
+	/// leaflet map
+    	buildMap() {
 		this.map = L.map('map', {
 		center: this.coordinates,
 		zoom: 11,
@@ -17,16 +17,16 @@ const myMap = {
 			'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		minZoom: '15',
 		}).addTo(this.map)
-		// create and add geolocation marker
+		//  geolocation marker
 		const marker = L.marker(this.coordinates)
 		marker
 		.addTo(this.map)
-		.bindPopup('<p1><b>You are here</b><br></p1>')
+		.bindPopup('<p1><b>Your location </b><br></p1>')
 		.openPopup()
 	},
 
-	// add business markers
-	addMarkers() {
+	/// business markers
+     	addMarkers() {
 		for (var i = 0; i < this.businesses.length; i++) {
 		this.markers = L.marker([
 			this.businesses[i].lat,
@@ -37,8 +37,7 @@ const myMap = {
 		}
 	},
 }
-
-// get coordinates via geolocation api
+/// get coordinates via geolocation api
 async function getCoords(){
 	const pos = await new Promise((resolve, reject) => {
 		navigator.geolocation.getCurrentPosition(resolve, reject)
